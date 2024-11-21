@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 
 public class FileHandler {
 
@@ -76,6 +77,23 @@ public class FileHandler {
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Error loading user resources: " + e.getMessage());
             return null;
+        }
+    }
+
+    public static void clearTestFiles() {
+        File usersDirectory = new File("data/users/");
+        File resourcesDirectory = new File("data/resources/");
+
+        if (usersDirectory.exists()) {
+            for (File file : Objects.requireNonNull(usersDirectory.listFiles())) {
+                file.delete();
+            }
+        }
+
+        if (resourcesDirectory.exists()) {
+            for (File file : Objects.requireNonNull(resourcesDirectory.listFiles())) {
+                file.delete();
+            }
         }
     }
 
