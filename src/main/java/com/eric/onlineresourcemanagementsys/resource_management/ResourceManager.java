@@ -1,7 +1,5 @@
 package com.eric.onlineresourcemanagementsys.resource_management;
 
-import com.eric.onlineresourcemanagementsys.entities.Resource;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

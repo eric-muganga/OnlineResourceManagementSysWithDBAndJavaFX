@@ -1,7 +1,7 @@
 package com.eric.onlineresourcemanagementsys.service;
 
 import com.eric.onlineresourcemanagementsys.user.AuthService;
-import com.eric.onlineresourcemanagementsys.entities.User;
+import com.eric.onlineresourcemanagementsys.user.User;
 import com.eric.onlineresourcemanagementsys.utils.FileHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

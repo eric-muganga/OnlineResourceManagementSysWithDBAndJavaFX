@@ -1,6 +1,5 @@
 package com.eric.onlineresourcemanagementsys.resource_management;
 
-import com.eric.onlineresourcemanagementsys.entities.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

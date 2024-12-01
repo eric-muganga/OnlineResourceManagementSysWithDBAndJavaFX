@@ -1,7 +1,6 @@
 package com.eric.onlineresourcemanagementsys.user;
 
 
-import com.eric.onlineresourcemanagementsys.entities.User;
 import com.eric.onlineresourcemanagementsys.utils.FileHandler;
 
 import javax.crypto.SecretKey;
