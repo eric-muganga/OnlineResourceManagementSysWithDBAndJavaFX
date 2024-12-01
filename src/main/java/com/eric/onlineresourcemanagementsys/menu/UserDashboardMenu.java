@@ -1,10 +1,10 @@
 package com.eric.onlineresourcemanagementsys.menu;
 
 import com.eric.onlineresourcemanagementsys.resource_management.GameAccount;
-import com.eric.onlineresourcemanagementsys.resource_management.Resource;
+import com.eric.onlineresourcemanagementsys.Entity.Resource;
 import com.eric.onlineresourcemanagementsys.resource_management.ResourceManager;
 import com.eric.onlineresourcemanagementsys.resource_management.Subscription;
-import com.eric.onlineresourcemanagementsys.user.User;
+import com.eric.onlineresourcemanagementsys.Entity.User;
 import com.eric.onlineresourcemanagementsys.utils.FileHandler;
 
 import java.util.Scanner;

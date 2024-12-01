@@ -1,5 +1,7 @@
 package com.eric.onlineresourcemanagementsys.resource_management;
 
+import com.eric.onlineresourcemanagementsys.Entity.Resource;
+
 public class GameAccount extends Resource {
 
     private String gamePlatform;

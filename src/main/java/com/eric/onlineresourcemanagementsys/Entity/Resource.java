@@ -1,4 +1,4 @@
-package com.eric.onlineresourcemanagementsys.resource_management;
+package com.eric.onlineresourcemanagementsys.Entity;
 
 import java.io.Serializable;
 
