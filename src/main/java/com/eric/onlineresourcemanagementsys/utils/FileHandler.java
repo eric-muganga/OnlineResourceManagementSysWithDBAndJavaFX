@@ -1,8 +1,8 @@
 package com.eric.onlineresourcemanagementsys.utils;
 
 
-import com.eric.onlineresourcemanagementsys.resource_management.Resource;
-import com.eric.onlineresourcemanagementsys.user.User;
+import com.eric.onlineresourcemanagementsys.entities.Resource;
+import com.eric.onlineresourcemanagementsys.entities.User;
 
 
 import java.io.*;

@@ -1,14 +1,22 @@
-package com.eric.onlineresourcemanagementsys.resource_management;
+package com.eric.onlineresourcemanagementsys.entities;
+
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+@Entity
+@Table(name = "resources")
 public abstract class Resource implements Serializable {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     protected String name;
     protected String username;
     protected String password;
 
+
+    public Resource() {}
     public Resource(String name, String username, String password) {
         this.name = name;
         this.username = username;
@@ -40,4 +48,12 @@ public abstract class Resource implements Serializable {
     }
 
     public abstract void displayInfo();
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
