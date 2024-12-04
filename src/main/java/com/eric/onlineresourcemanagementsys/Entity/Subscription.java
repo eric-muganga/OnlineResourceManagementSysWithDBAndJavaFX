@@ -1,16 +1,28 @@
-package com.eric.onlineresourcemanagementsys.resource_management;
+package com.eric.onlineresourcemanagementsys.Entity;
 
-import com.eric.onlineresourcemanagementsys.Entity.Resource;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "subscriptions")
 public class Subscription extends Resource {
+    @Column(nullable = false)
     private String subscriptionType;
+
+    public Subscription() {}
 
     public Subscription(String name, String username, String password, String subscriptionType) {
         super(name, username, password);
         this.subscriptionType = subscriptionType;
     }
+
     public String getSubscriptionType() {
         return subscriptionType;
+    }
+
+    public void setSubscriptionType(String subscriptionType) {
+        this.subscriptionType = subscriptionType;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.eric.onlineresourcemanagementsys.Entity;
 
-import com.eric.onlineresourcemanagementsys.resource_management.ResourceManager;
 import com.eric.onlineresourcemanagementsys.utils.EncryptionUtil;
 import jakarta.persistence.*;
 
@@ -14,6 +13,7 @@ import java.util.List;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private int id;
 
     @Column(unique = true, nullable = false)
@@ -27,9 +27,10 @@ public class User implements Serializable {
 
     public User() {}
 
-    public User(String username, String password, SecretKey key) {
+
+    public User(String username, byte[] encryptedPassword) {
         this.username = username;
-        this.encryptedPassword = EncryptionUtil.encryptPassword(password, key);
+        this.encryptedPassword = encryptedPassword;
     }
 
     public int getId() {
@@ -59,6 +60,19 @@ public class User implements Serializable {
 
     public void setResources(List<Resource> resources) {
         this.resources = resources;
+    }
+
+    public void removeResource(Resource resource) {
+        resources.remove(resource);
+    }
+
+    public void addResource(Resource resource) {
+        resources.add(resource);
+    }
+
+
+    public Resource getResource(String resourceName) {
+        return resources.stream().filter(resource -> resource.getName().equals(resourceName)).findFirst().orElse(null);
     }
 
     public boolean verifyPassword(String inputPassword, SecretKey key) {
