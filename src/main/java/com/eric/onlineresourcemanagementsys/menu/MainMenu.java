@@ -1,15 +1,23 @@
 package com.eric.onlineresourcemanagementsys.menu;
 
-import com.eric.onlineresourcemanagementsys.user.AuthService;
+import com.eric.onlineresourcemanagementsys.services.AuthService;
+import com.eric.onlineresourcemanagementsys.services.ResourceService;
+import com.eric.onlineresourcemanagementsys.services.UserService;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class MainMenu {
     private final AuthService authService;
+    private final UserService userService;
+    private final ResourceService resourceService;
     private final Scanner scanner = new Scanner(System.in);
 
-    public MainMenu(AuthService authService) {
+    public MainMenu(AuthService authService, UserService userService, ResourceService resourceService) {
         this.authService = authService;
+        this.userService = userService;
+        this.resourceService = resourceService;
     }
 
     public void display() {
@@ -28,6 +36,7 @@ public class MainMenu {
                     case 2 -> register();
                     case 3 -> {
                         System.out.println("Exiting the application...");
+                        System.exit(0);
                         return;
                     }
                     default -> System.out.println("Invalid option. Please try again.");
@@ -48,7 +57,7 @@ public class MainMenu {
         var user = authService.loginUser(username, password);
         if (user != null) {
             System.out.println("Login successful! Welcome, " + username + ".");
-            new UserDashboardMenu(user).display();
+            new UserDashboardMenu(resourceService, userService, user ).display();
         } else {
             System.out.println("Invalid username or password.");
         }
@@ -61,6 +70,6 @@ public class MainMenu {
         System.out.print("Enter Password: ");
         String password = scanner.nextLine();
 
-        authService.registerUser(username, password);
+        userService.registerUser(username, password);
     }
 }
