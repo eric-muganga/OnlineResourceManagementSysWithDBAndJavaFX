@@ -9,6 +9,7 @@ public class KeyHandler {
     public static void saveSecretKey(SecretKey secretKey, String fileName) {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
             oos.writeObject(secretKey);
+            System.out.println("Secret key saved successfully.");
         }catch(Exception e) {
             System.out.println("Error when saving the secretKey" + e.getMessage());
         }
@@ -16,9 +17,10 @@ public class KeyHandler {
 
     public static SecretKey loadSecretKey(String fileName) {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            System.out.println("Secret key loaded successfully from " + fileName);
             return (SecretKey) ois.readObject();
-
         }catch (FileNotFoundException e) {
+            System.out.println("Secret key file not found: " + fileName);
             return null;
         } catch(Exception e) {
             System.out.println("Error when loading the secretKey" + e.getMessage());
