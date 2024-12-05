@@ -22,18 +22,20 @@ public class AuthService {
     public User loginUser(String username, String password) {
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            throw new IllegalArgumentException("Invalid username or password.");
+            System.out.println("Invalid username or password.");
         }
 
         try {
+            assert user != null;
             if (user.verifyPassword(password, secretKey)) {
                 return user;
             } else {
-                throw new IllegalArgumentException("Invalid username or password.");
+                System.out.println("Invalid username or password.");
             }
         } catch (Exception e) {
-            throw new IllegalArgumentException("Error during password verification: " + e.getMessage(), e);
+            System.out.println("Error during password verification: " + e.getMessage());
         }
+        return null;
     }
 
 

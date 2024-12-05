@@ -60,6 +60,7 @@ public class MainMenu {
             new UserDashboardMenu(resourceService, userService, user ).display();
         } else {
             System.out.println("Invalid username or password.");
+            display();
         }
     }
 
